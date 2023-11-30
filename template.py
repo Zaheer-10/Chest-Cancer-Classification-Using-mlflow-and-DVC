@@ -31,6 +31,7 @@ list_of_files = [
     'templates/index.html',
     'static/css',
     'static/js',
+    'PERSONNEL_NOTE.txt'
 
 ]
 
