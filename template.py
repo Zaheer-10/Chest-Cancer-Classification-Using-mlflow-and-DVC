@@ -2,9 +2,9 @@ import os
 import logging
 from pathlib import Path
 
-FORMAT = '[%(asctime)s] : %(message)s '
+# FORMAT = '%(asctime)s %(levelname)-8s %(message)s',
 
-logging.basicConfig(level=logging.INFO, format=FORMAT)
+logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 project_name = 'Chest_Cancer_Classification'
 
