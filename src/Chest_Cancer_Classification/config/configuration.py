@@ -1,9 +1,9 @@
 from Chest_Cancer_Classification.constants import *
-from Chest_Cancer_Classification.entity import DataIngestionConfig
+from Chest_Cancer_Classification.entity import DataIngestionConfig, PrepareFoundationModelConfig
 from Chest_Cancer_Classification.utils.common import read_yaml, create_directories
 
 
-class ConfigurationManger:
+class ConfigurationManager:
     def __init__(self, config_file_path = CONFIG_FILE_PATH , params_file_path = PARAMS_FILE_PATH):
         self.config  = read_yaml(config_file_path)
         self.params  = read_yaml(params_file_path)
@@ -22,3 +22,20 @@ class ConfigurationManger:
         
         return data_ingestion_config
     
+    
+    def get_prepare_foundation_model(self) -> PrepareFoundationModelConfig:
+        config = self.config.prepare_foundation_model
+        create_directories([config.root_dir])
+        
+        prepare_foundation_model_config = PrepareFoundationModelConfig(
+            root_dir=Path(config.root_dir),
+            base_model_path=Path(config.base_model_path),
+            updated_base_model_path=Path(config.updated_base_model_path),
+            params_image_size=self.params.IMAGE_SIZE,
+            params_learning_rate=self.params.LEARNING_RATE,
+            params_include_top=self.params.INCLUDE_TOP,
+            params_weights=self.params.WEIGHTS,
+            params_classes=self.params.CLASSES
+        )
+
+        return prepare_foundation_model_config
