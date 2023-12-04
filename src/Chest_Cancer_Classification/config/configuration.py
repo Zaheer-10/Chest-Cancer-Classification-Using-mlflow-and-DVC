@@ -3,11 +3,19 @@ from Chest_Cancer_Classification.constants import *
 from Chest_Cancer_Classification.entity import DataIngestionConfig, EvaluationConfig, PrepareFoundationModelConfig, TrainingConfig
 from Chest_Cancer_Classification.utils.common import read_yaml, create_directories
 
-
 class ConfigurationManager:
-    def __init__(self, config_file_path = CONFIG_FILE_PATH , params_file_path = PARAMS_FILE_PATH):
-        self.config  = read_yaml(config_file_path)
-        self.params  = read_yaml(params_file_path)
+    # def __init__(self, config_file_path = CONFIG_FILE_PATH , params_file_path = PARAMS_FILE_PATH):
+        # self.config  = read_yaml(config_file_path)
+        # self.params  = read_yaml(params_file_path)
+        # create_directories([self.config.artifacts_root])
+    def __init__(
+        self,
+        config_filepath = CONFIG_FILE_PATH,
+        params_filepath = PARAMS_FILE_PATH):
+
+        self.config = read_yaml(config_filepath)
+        self.params = read_yaml(params_filepath)
+
         create_directories([self.config.artifacts_root])
         
     def get_data_ingestion_config(self) -> DataIngestionConfig:
