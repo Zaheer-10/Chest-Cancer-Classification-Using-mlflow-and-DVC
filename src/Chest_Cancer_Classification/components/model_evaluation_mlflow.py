@@ -4,7 +4,7 @@ import mlflow
 import mlflow.keras
 from urllib.parse import urlparse
 from Chest_Cancer_Classification.entity import EvaluationConfig
-from Chest_Cancer_Classification.utils.common import save_json
+from Chest_Cancer_Classification.utils.common import save_json 
 
 
 class Evaluation:
@@ -51,7 +51,6 @@ class Evaluation:
     def save_score(self):
         scores = {"loss": self.score[0], "accuracy": self.score[1]}
         save_json(path=Path("scores.json"), data=scores)
-
     
     def log_into_mlflow(self):
         mlflow.set_registry_uri(self.config.mlflow_uri)
