@@ -6,7 +6,7 @@
 
 ## Workflow🐍
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/0ce90766-aff5-4d64-85b0-c31c3f2f97bf/f7e5702a-6110-4352-aa4a-1ea1ff7734b6/Untitled.png)
+![Untitled](https://github.com/Zaheer-10/Chest-Cancer-Classification-Using-mlflow-and-DVC/blob/main/static/chest_cancer_workflow.svg)
 
 ## 🚀 Training Pipeline
 
