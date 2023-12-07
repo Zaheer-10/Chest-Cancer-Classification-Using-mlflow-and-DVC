@@ -166,3 +166,4 @@ artifacts
 .dvcignore
 mlruns
 scores.json
+deployment
